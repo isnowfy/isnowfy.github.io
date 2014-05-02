@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+#simple
+
+Simple is a static blog generator with a single static page. You can write you blog in the static web page, and it will generate the static blog at your username.github.io project with the [github pages](https://pages.github.com/).
+
+##Demo
+
+[simple](http://isnowfy.github.io/simple)
+
+[blog demo](http://isnowfy.github.io/)
+
+[lightweight markdown editor](http://isnowfy.github.io/simple/editor.html)
+
+##Usage
+
+With simple and github pages you can easily create your static blog. Here is what you need do.
+
+1. Create a github account.
+2. Create a project. (Details is [here](https://pages.github.com/). you need create the username.github.io project, username is your github username, and create the project with initalizing with a README.)
+3. Browse [simple](http://isnowfy.github.io/simple) and initalize you username.github.io project.
+4. Write your markdown blog.
+
+##Features
+
+* simple, no backend need
+* static blog
+* markdown editor
+* code highlight support
+* latex math symbol support
+
+##Custom
+
+The template files are at `/src/template`, so you can modify the template files and css files. If you want use your own theme you can clone the project, modify the template files and push the entire `src` folder in your `gh-pages` branch which will allow you generate your own static blog.
+
+##Todo
+
+search, sitemap, rss
+
+##License
+
+MIT licensed.
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<h1 id="simple">simple</h1>
+
+<p>Simple is a static blog generator with a single static page. You can write you blog in the static web page, and it will generate the static blog at your username.github.io project with the <a href="https://pages.github.com/">github pages</a>.</p>
+
+<h2 id="demo">Demo</h2>
+
+<p><a href="http://isnowfy.github.io/simple">simple</a></p>
+
+<p><a href="http://isnowfy.github.io/">blog demo</a></p>
+
+<p><a href="http://isnowfy.github.io/simple/editor.html">lightweight markdown editor</a></p>
+
+<h2 id="usage">Usage</h2>
+
+<p>With simple and github pages you can easily create your static blog. Here is what you need do.</p>
+
+<ol>
+<li>Create a github account.</li>
+<li>Create a project. (Details is <a href="https://pages.github.com/">here</a>. you need create the username.github.io project, username is your github username, and create the project with initalizing with a README.)</li>
+<li>Browse <a href="http://isnowfy.github.io/simple">simple</a> and initalize you username.github.io project.</li>
+<li>Write your markdown blog.</li>
+</ol>
+
+<h2 id="features">Features</h2>
+
+<ul>
+<li>simple, no backend need</li>
+<li>static blog</li>
+<li>markdown editor</li>
+<li>code highlight support</li>
+<li>latex math symbol support</li>
+</ul>
+
+<h2 id="custom">Custom</h2>
+
+<p>The template files are at <code>/src/template</code>, so you can modify the template files and css files. If you want use your own theme you can clone the project, modify the template files and push the entire <code>src</code> folder in your <code>gh-pages</code> branch which will allow you generate your own static blog.</p>
+
+<h2 id="todo">Todo</h2>
+
+<p>search, sitemap, rss</p>
+
+<h2 id="license">License</h2>
+
+<p>MIT licensed.</p>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "//path//";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+</body>
+</html>
