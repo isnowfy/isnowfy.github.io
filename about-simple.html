@@ -25,9 +25,7 @@
 	</div>
 <div id="md" style="display: none;">
 <!-- markdown -->
-#simple
-
-Simple is a static blog generator with a single static page. You can write you blog in the static web page, and it will generate the static blog at your username.github.io project with the [github pages](https://pages.github.com/).
+[Simple](https://github.com/isnowfy/simple) is a static blog generator with a single static page. You can write you blog online, and it will generate static html files at your repo named `username.github.io` which is supported by [github pages](https://pages.github.com)
 
 ##Demo
 
@@ -39,20 +37,29 @@ Simple is a static blog generator with a single static page. You can write you b
 
 ##Usage
 
-With simple and github pages you can easily create your static blog. Here is what you need do.
+With simple and github pages you can easily create your static blog. Here is what you need to do.
 
-1. Create a github account.
-2. Create a project. (Details is [here](https://pages.github.com/). you need create the username.github.io project, username is your github username, and create the project with initalizing with a README.)
-3. Browse [simple](http://isnowfy.github.io/simple) and initalize you username.github.io project.
-4. Write your markdown blog.
+1. Create github account.
+2. Create a repo named `your_user_name.github.io` (remember to check `Initilize and create README`).
+3. Sign in [simple](http://isnowfy.github.io/simple) with your github account.
+4. Click `Initilize` to set up basic file for your static blog site.
+5. Click `Go` and start writing.
+
+![simple](http://isnowfy.github.io/img/Simple.png)
+
+* You can use your own blog name, just modify the `main.json` file, and change `name="username"`.
+
+* You can use disqus comment system, just modify the `main.json` file, and change `disqus_shortname=""` to `disqus_shortname="your_shortname"`.
+
+* You can use your own custom domain, just modify the `CNAME` file.(see [also](https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages)).
 
 ##Features
 
-* simple, no backend need
-* static blog
-* markdown editor
-* code highlight support
-* latex math symbol support
+* Simple, no backend need
+* Static blog
+* Markdown editor
+* Code highlight support
+* Tex formula support
 
 ##Custom
 
@@ -60,18 +67,17 @@ The template files are at `/src/template`, so you can modify the template files 
 
 ##Todo
 
-search, sitemap, rss
+Enhance error display, Search, Sitemap, Rss
 
 ##License
 
 MIT licensed.
+
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
 <!-- content -->
-<h1 id="simple">simple</h1>
-
-<p>Simple is a static blog generator with a single static page. You can write you blog in the static web page, and it will generate the static blog at your username.github.io project with the <a href="https://pages.github.com/">github pages</a>.</p>
+<p><a href="https://github.com/isnowfy/simple">Simple</a> is a static blog generator with a single static page. You can write you blog online, and it will generate static html files at your repo named <code>username.github.io</code> which is supported by <a href="https://pages.github.com">github pages</a></p>
 
 <h2 id="demo">Demo</h2>
 
@@ -83,23 +89,32 @@ MIT licensed.
 
 <h2 id="usage">Usage</h2>
 
-<p>With simple and github pages you can easily create your static blog. Here is what you need do.</p>
+<p>With simple and github pages you can easily create your static blog. Here is what you need to do.</p>
 
 <ol>
-<li>Create a github account.</li>
-<li>Create a project. (Details is <a href="https://pages.github.com/">here</a>. you need create the username.github.io project, username is your github username, and create the project with initalizing with a README.)</li>
-<li>Browse <a href="http://isnowfy.github.io/simple">simple</a> and initalize you username.github.io project.</li>
-<li>Write your markdown blog.</li>
+<li>Create github account.</li>
+<li>Create a repo named <code>your_user_name.github.io</code> (remember to check <code>Initilize and create README</code>).</li>
+<li>Sign in <a href="http://isnowfy.github.io/simple">simple</a> with your github account.</li>
+<li>Click <code>Initilize</code> to set up basic file for your static blog site.</li>
+<li>Click <code>Go</code> and start writing.</li>
 </ol>
+
+<p><img src="http://isnowfy.github.io/img/Simple.png" alt="simple" title=""></p>
+
+<ul>
+<li><p>You can use your own blog name, just modify the <code>main.json</code> file, and change <code>name="username"</code>.</p></li>
+<li><p>You can use disqus comment system, just modify the <code>main.json</code> file, and change <code>disqus_shortname=""</code> to <code>disqus_shortname="your_shortname"</code>.</p></li>
+<li><p>You can use your own custom domain, just modify the <code>CNAME</code> file.(see <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages">also</a>).</p></li>
+</ul>
 
 <h2 id="features">Features</h2>
 
 <ul>
-<li>simple, no backend need</li>
-<li>static blog</li>
-<li>markdown editor</li>
-<li>code highlight support</li>
-<li>latex math symbol support</li>
+<li>Simple, no backend need</li>
+<li>Static blog</li>
+<li>Markdown editor</li>
+<li>Code highlight support</li>
+<li>Tex formula support</li>
 </ul>
 
 <h2 id="custom">Custom</h2>
@@ -108,7 +123,7 @@ MIT licensed.
 
 <h2 id="todo">Todo</h2>
 
-<p>search, sitemap, rss</p>
+<p>Enhance error display, Search, Sitemap, Rss</p>
 
 <h2 id="license">License</h2>
 
