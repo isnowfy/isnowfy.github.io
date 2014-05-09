@@ -1,16 +1,17 @@
 {"name":"isnowfy","number_of_posts_per_page":7,"disqus_shortname":"isnowfyblog",
-"posts":[{"title": "Hello World",
-        "path": "hello.html",
+"posts":[
+        {"title": "用静态页面生成静态博客",
+        "path": "about-simple-cn.html",
         "date": "2014-05-02",
-        "tags": "hello test"},
+        "tags": "simple test"},
         {"title": "About Simple",
         "path": "about-simple.html",
         "date": "2014-05-02",
         "tags": "simple test"},
-        {"title": "用静态页面生成静态博客",
-        "path": "about-simple-cn.html",
+        {"title": "Hello World",
+        "path": "hello.html",
         "date": "2014-05-02",
-        "tags": "simple test"}
+        "tags": "hello test"}
         ],
 "pages":[{"title": "About",
         "path": "about.html",
